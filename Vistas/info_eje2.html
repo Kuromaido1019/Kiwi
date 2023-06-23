@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mi página web</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /*variables*/
+        :root {
+            --primary-color: #689F38;
+            --secondary-color: #8BC34A;
+            --tertiary-color: #DCEDC8;
+            --quaternary-color: #9FC490;
+            --light-color: #E4E8EB;
+            --white-color: #fff;
+            --black-color: #1D1D1B;
+            --red-color: #FF5757;
+            --font-light-color: #a8a8b3;
+            --font-dark-color: #212121;
+            --font-bold-color: #4f4f4f;
+            --box_shadow-primary: 0px 6px 50px -20px rgba(0, 0, 0, 0.6);
+            --lowText_font_size: 16px;
+            --text_size_title: 40px;
+            --text_size_title_card: 24px;
+            --text_size_subTitle: 20px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .pre_title {
+            color: var(--font-light-color);
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 25px;
+            margin-bottom: 1%;
+            color: var(--primary-color);
+        }
+
+        .sub_title {
+            color: var(--quaternary-color);
+            font-size: 18px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--quaternary-color);
+            margin-bottom: 2%;
+        }
+
+        .text {
+            color: var(--font-dark-color);
+            font-size: 18px;
+            line-height: 1.4;
+            text-align: justify;
+            margin-bottom: 2%;
+        }
+
+        .image-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .image {
+            width: 40%;
+            margin-bottom: 2%;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .capturas{
+            border: 3px solid var(--quaternary-color);
+            border-radius: 10px;
+        }
+
+        .image-caption {
+            text-align: center;
+            margin-left: 5%;
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="pre_title">Clase</p>
+
+        <h1>Capitulo 1 <span class="sub_title"> 1.2 Sumar usando circulos</span></h1>
+        <div class="divider"></div>
+        <div class="text">
+            <p>El ejercicio consiste en una pantalla llena de círculos numerados. Tu objetivo
+                será sumar incrementos a un número inicial haciendo clic en los círculos correspondientes.
+                Cada vez que hagas clic en un círculo, se sumará el número que representa a tu contador.
+                Tu misión es alcanzar un marcador específico, que se te indicará al comenzar el ejercicio.<br><br>
+                A medida que vayas realizando las sumas y te acerques al marcador objetivo, encontrarás círculos
+                con números dispuestos en diferentes patrones y secuencias. Algunos círculos pueden tener valores
+                más altos, mientras que otros tendrán valores más bajos. Tu tarea será seleccionar los círculos
+                adecuados y hacer clic en ellos en el orden correcto para llegar al marcador objetivo.
+            </p>
+        </div>
+
+        <h1><i class="material-icons">psychology</i> Habilidades Desarrolladas</h1>
+        <div class="divider"></div>
+        <div class="image-row">
+            <div class="image">
+                <img src="../Assets/media/skills/concentracion.png" alt="Imagen 1">
+                <div class="image-caption">Observacion</div>
+            </div>
+            <div class="image">
+                <img src="../Assets/media/skills/destreza.png" alt="Imagen 2">
+                <div class="image-caption">Asociacion y Razonamiento</div>
+            </div>
+            <div class="image">
+                <img src="../Assets/media/skills/velocidad.png" alt="Imagen 3">
+                <div class="image-caption">Vocabulario y Comprension</div>
+            </div>
+            <div class="image">
+                <img src="../Assets/media/skills/motricidad.png" alt="Imagen 4">
+                <div class="image-caption">Motricidad Fina</div>
+            </div>
+        </div>
+
+        <h1><i class="material-icons">collections</i> Capturas</h1>
+        <div class="divider"></div>
+        <div class="image-row">
+            <div class="image">
+                <img src="../Assets/media/Clases/clase_ejercicio3.png" alt="Imagen 3" class="capturas">
+            </div>
+            <div class="image">
+                <img src="../Assets/media/Clases/clase_ejercicio4.png" alt="Imagen 3" class="capturas">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

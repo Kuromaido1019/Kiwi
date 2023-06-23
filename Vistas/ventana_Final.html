@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="../Assets/media/Logo/kiwi-favicon.png" />
+    <title>KIWI | Final del Capitulo</title>
+    <link rel="stylesheet" href="../Assets/css/Styles.css">
+    <link rel="stylesheet" href="../Assets/materialize/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #C5CAE9;
+            background-image: url("../Assets/media/cover/kiwi2.png");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #card-mensaje {
+            background-color: #E4E8EB;
+            width: 50%;
+            margin: auto;
+        }
+
+        #card-mensaje p {
+            color: #0E4D8D;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        #card-mensaje span {
+            color: #0E4D8D;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Mensaje de Completado -->
+    <div id="card-mensaje" class="card">
+        <div class="card-content white-text">
+            <span class="card-title">Felicidades has completado el Ejercicio!</span>
+            <p>Has demostrado un gran esfuerzo y dedicación al superar este desafío. Tu perseverancia y determinación
+                son admirables. Continúa así, siempre buscando aprender y crecer.</p>
+        </div>
+        <div class="card-action center">
+            <button onclick="redireccionar()" class="waves-effect waves-light btn orange accent-1 white-text"><b>Ir a la página principal</b></button>
+        </div>
+    </div>
+
+    <!-- Importaciones Js -->
+    <script src="../Assets/materialize/js/materialize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
+    <script src="https://kit.fontawesome.com/770f2e87c7.js" crossorigin="anonymous"></script>
+
+    <!-- Script Redireccion -->
+    <script>
+        function redireccionar() {
+            window.top.location.href = "../Index.html";
+        }
+    </script>
+
+</body>
+
+</html>

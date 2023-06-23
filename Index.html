@@ -1,0 +1,324 @@
+<!--<?php
+
+
+include('Controles/ConexionDB/Conexion.php');
+
+$con = conectarBD();
+
+if (!mysqli_set_charset($con, "utf8mb4")) {
+    printf("Error loading character set utf8mb4: %s\n", mysqli_error($con));
+    exit();
+}
+
+$sql = "SELECT direccion,numero_telefono,correo_electronico FROM administrador WHERE estado = 1 AND id_administrador = 1";
+
+$result = mysqli_query($con, $sql);
+
+$sqlObras = "SELECT * FROM obras WHERE estado = 1 ORDER BY rand() LIMIT 6";
+
+$resultObras = mysqli_query($con, $sqlObras);
+
+$con->close();
+/**
+ * Se modifico lo siguiente:
+ * Se quito el href del logo de inicio
+ * Se agrego target:_blank para: links redes sociales y link ubicacion
+ * Se agrego una actualizacion en el mapa
+ * Se agrego mailto a los href de correos
+ * SE NECESITA REVISAR:
+ * El icono de inicio de la pagina es muy grande
+ */
+?>
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="Assets/media/Logo/kiwi-favicon.png" />
+    <title>Kiwi | Home</title>
+
+    <link rel="stylesheet" href="Assets/css/Styles.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
+</head>
+
+<body>
+    <style>
+        .highlighted {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+    <!-- Header -->
+    
+    <header id="header">
+        
+        <select id='voiceSelect' style=" Display: none"></select>
+        <div class="container_header">
+            <div class="logo">
+                <a href="#home"><img src="Assets/media/Logo/logo_kiwi_nav.png" alt="A&L Logo"></a>
+            </div>
+
+            <div class="menu">
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#service">Habilidades</a></li>
+                        <li><a href="#about">Quienes Somos</a></li>
+                        <li><a href="#client">Alianzas</a></li>
+                        <li><a href="#work">Planes</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                        <li><a href="gestion.html" class="btn-small">Ingresar</a></li>
+                    </ul>
+                </nav>
+
+                <div class="btn_menu" id="btn_menu"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+        
+    </header>
+
+    <!-- Inicio -->
+
+    <div class="container__all" id="container_all">
+
+        <!-- Cover -->
+        <div class="container_cover div_offset" id="home">
+            <div class="cover">
+                <section class="text_cover">
+                    <h1>Kiwi Plataforma de Educacion</h1>
+                    <p>Integración de la informática en cursos diseñados para reforzar las habilidades de los estudiantes.</p>
+                </section>
+                <section class="img_cover">
+                    <img src="Assets/media/Cover/img_cover2.png" alt="Cover">
+                </section>
+            </div>
+            <div class="go_down">
+                <img src="Assets/media/Cover/go_down.png" alt="Go Down">
+            </div>
+        </div>
+
+        <!-- Servicios -->
+        <div class="container_services container_card-primary" id="service">
+            <div class="services card_primary">
+                <div class="text_services text_card-primary">
+                    <p class="before_title">HABILIDADES</p>
+                    <h1>Habilidades que refuerza nuestra plataforma</h1>
+                </div>
+                <div class="container_services container_box-cardPrimary">
+                    <div class="card_services box_card-primary">
+                        <img src="Assets/media/Services/programacion.png" alt="Gear">
+                        <h2>Habilidades de Programacion</h2>
+                    </div>
+                    <div class="card_services box_card-primary">
+                        <img src="Assets/media/Services/pensamiento.png" alt="Connections">
+                        <h2>Pensamiento Computacional</h2>
+                    </div>
+                    <div class="card_services box_card-primary">
+                        <img src="Assets/media/Services/resolucion.png" alt="Construction">
+                        <h2>Habilidades de resolucion de problemas</h2>
+                    </div>
+                    <div class="card_services box_card-primary">
+                        <img src="Assets/media/Services/competencia.png" alt="Construction">
+                        <h2>Competencia Digital</h2>
+                    </div>
+                    <div class="card_services box_card-primary">
+                        <img src="Assets/media/Services/creatividad.png" alt="Construction">
+                        <h2>Creatividad y pensamiento critico</h2>
+                    </div>
+                    <div class="card_services box_card-primary">
+                        <img src="Assets/media/Services/aprendizaje.png" alt="Construction">
+                        <h2>Habilidades de aprendizaje autonomo</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quienes Somos -->
+        <div class="container_about" id="about">
+            <div class="about">
+                <div class="img_about">
+                    <img src="Assets/media/Jobs/kiwi_job.jpg" alt="About">
+                </div>
+                <div class="text_about">
+                    <h1>Quienes Somos</h1>
+                    <p>Nuestra plataforma educativa integra la informática en cursos diseñados para reforzar 
+                        las habilidades de los estudiantes. Con instructores expertos, cubrimos una amplia gama 
+                        de temas, fomentando el pensamiento crítico y la creatividad. Nuestra flexibilidad y recursos 
+                        adicionales permiten a los estudiantes acceder a la educación de calidad en cualquier momento y lugar.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client -->
+
+        <div class="container_client container_card-primary" id="client">
+            <div class="client card_primary">
+                <div class="text_client text_card-primary">
+                    <p class="before_title">ALIANZAS</p>
+                    <h1>Nuestra Alianza</h1>
+                </div>
+
+                <div class="container_card-client container_box-cardPrimary">
+                    <div class="card_client">
+                        <div class="image">
+                            <img src="Assets/media/Client/st_logo.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work -->
+
+        <div class="container_work container_card-primary" id="work">
+            <div class="work card_primary">
+                <div class="text_work text_card-primary">
+                    <p class="before_title">Planes</p>
+                    <h1>Membresias actuales de la plataforma</h1>
+                </div>
+
+                <!-- Mantenedor Obras -->
+                <div class="container_work container_box-cardPrimary">
+                    <!--
+                    <?php
+                    
+                    while ($rowObras = mysqli_fetch_array($resultObras)) {
+                        $fecha_obra = date("d-M-Y", strtotime($rowObras['fecha_trabajo']));
+                        
+                    ?>
+                    -->
+                    <!-- Unidad de Obra -->
+                    <div class="card_work">
+                        <div class="cover_card">
+                            <img src="Assets\media\Jobs\membresia1.png" alt="">
+                            <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
+                        </div>
+                        <h2>Caracteristicas<!--<?php  echo $rowObras['nombre_trabajo'] ?>--></h2>
+                        <p>Acceso completo a todos los cursos<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Panel de Administracion<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Opciones de personalizacion<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Soporte tecnico dedicado<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <hr>
+                        <div class="footer_card">
+                            <h3 class="user_name">Comprar<!--<?php 1 echo $rowObras['para_quien'] ?>--></h3>
+                            <i>$30 Mensual<!--<?php  echo $fecha_obra ?>--></i>
+                        </div>
+                    </div>
+                    <div class="card_work">
+                        <div class="cover_card">
+                            <img src="Assets\media\Jobs\membresia3.png" alt="">
+                            <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
+                        </div>
+                        <h2>Caracteristicas<!--<?php  echo $rowObras['nombre_trabajo'] ?>--></h2>
+                        <p>Acceso a cursos especificos<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Recursos didacticos interactivos<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Recursos digitales personalizados<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Soporte tecnico basico<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <hr>
+                        <div class="footer_card">
+                            <h3 class="user_name">Comprar<!--<?php 1 echo $rowObras['para_quien'] ?>--></h3>
+                            <i>$20 Mensual<!--<?php  echo $fecha_obra ?>--></i>
+                        </div>
+                    </div>
+                    <div class="card_work">
+                        <div class="cover_card">
+                            <img src="Assets\media\Jobs\membresia2.png" alt="">
+                            <!--<?php echo $rowObras['foto'] ?> "ubicado en la ruta src"-->
+                        </div>
+                        <h2>Caracteristicas<!--<?php  echo $rowObras['nombre_trabajo'] ?>--></h2>
+                        <p>Acceso limitado de los cursos<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Recursos de aprendizaje adicionales<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Ajuste de horarios personalizado<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <p>Soporte tecnico para consultas<!--<?php  echo $rowObras['detalles'] ?>--></p>
+                        <hr>
+                        <div class="footer_card">
+                            <h3 class="user_name">Comprar<!--<?php 1 echo $rowObras['para_quien'] ?>--></h3>
+                            <i>$10 Mensual<!--<?php  echo $fecha_obra ?>--></i>
+                        </div>
+                    </div>
+                    <!--
+                    <?php
+                    };
+                    $resultObras->close();
+                     ?>
+                -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Contacto -->
+
+        <div class="container_about div_offset" id="contact">
+            <div class="about">
+                <div class="text_contact">
+                    <p class="before_title">CONTACTO</p>
+                    <h1>Mision</h1>
+                    <p id="paragraph">Nuestra misión es proporcionar una plataforma educativa innovadora 
+                        que integre la informática en los procesos de aprendizaje, brindando a estudiantes 
+                        de todas las edades y niveles educativos la oportunidad de fortalecer sus habilidades 
+                        digitales.</p>
+                    <h1>Vision</h1>
+                    <p id="paragraph">Nuestra visión es ser líderes en el campo de la educación digital, siendo 
+                        reconocidos como la plataforma preferida para el desarrollo de habilidades digitales. Nos 
+                        esforzamos por ser una fuente confiable y accesible de conocimientos tecnológicos, 
+                        proporcionando cursos de alta calidad que impulsen la excelencia académica y el crecimiento personal.</p>
+                </div>
+                <div class="map_contact">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.9570015970717!2d-70.7391169206543!3d-34.173017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966343410b6878b1%3A0x4e870cfb3bca6ee!2sSanto%20Tomas%20Rancagua!5e0!3m2!1ses!2scl!4v1685590607509!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+
+        <Footer>
+            <div class="container__footer">
+
+                <div class="box__footer">
+                    <div class="logo">
+                        <img src="Assets/media/Logo/kiwi_logo.png" alt="">
+                    </div>
+                    <div class="terms">
+                        Integración de la informática en cursos diseñados para reforzar las habilidades de los estudiantes.
+                    </div>
+                </div>
+
+                <div class="box__footer">
+                    <h2>Redes Sociales</h2>
+                    <a href="#!" target="_blank"><i class="fab fa-facebook-square"></i> Facebook</a>
+                    <a href="#!" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a href="#!" target="_blank"><i class="fab fa-instagram-square"></i> Instagram</a>
+                </div>
+
+                <div class="box__footer">
+                    <h2>Contacto</h2>
+                    <!--<?php
+                    $row = mysqli_fetch_array($result)
+                    ?> -->
+                    <a href="#!" target="_blank"><i class="fa-solid fa-location-dot"></i> José María O' Carrol # 63. <!--<?php echo $row['direccion'] ?>--></a>
+                    <a href="#!"><i class="fa-solid fa-envelope"></i> kiwiplataform@gmail.com</a>
+                    <a href="tel:<?php echo $row['numero_telefono'] ?>"><i class="fa-solid fa-phone"></i> +569 34130638.<!--<?php echo $row['numero_telefono'] ?>--></a>
+                    <a href="#"><i class="fa-solid fa-calendar"></i> 8:30 a 13:30 | 14:30 a 18:30.</a>
+                    <!--<?php
+                    $result->close();
+                    ?>-->
+                </div>
+            </div>
+
+            <div class="box__copyright">
+                <hr>
+                <p>Todos los derechos reservados © 2023 <b>Kiwi Platform</b></p>
+            </div>
+        </Footer>
+
+    </div>
+
+    <script src="Assets/js/script.js"></script>
+</body>
+
+</html>

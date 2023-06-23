@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="../../Assets/media/Logo/kiwi-favicon.png" />
+    <title>KIWI | Capitulo I: Unir</title>
+    <link rel="stylesheet" href="../../Assets/css/Styles.css">
+    <link rel="stylesheet" href="../../Assets/materialize/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /*variables*/
+    :root {
+        --primary-color: #f7faf9;
+        /* Background */
+        --secondary-color: #b1c2a3;
+        /*Letras*/
+        --tertiary-color: #DCEDC8;
+        --quaternary-color: #FFF4D0;
+        --quinary-color: #b1c2a3;
+        --white-color: #fff;
+        --black-color: #1D1D1B;
+        --font-light-color: #a8a8b3;
+        --font-dark-color: #737380;
+        --font-bold-color: #4f4f4f;
+        --box_shadow-primary: 0px 6px 50px -20px rgba(0, 0, 0, 0.6);
+        --lowText_font_size: 16px;
+        --text_size_title: 30px;
+        --text_size_title_card: 24px;
+        --text_size_subTitle: 20px;
+    }
+
+    body {
+        background-color: var(--primary-color);
+    }
+
+    .btn-large {
+        width: 100%;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .card-panel {
+        border-radius: 10px;
+    }
+
+    .texto_titulo {
+        color: white;
+        font-size: var(--text_size_title);
+
+    }
+
+    .semi-titulo {
+        color: var(--font-light-color);
+        font-size: var(--text_size_subTitle);
+    }
+
+    /* Estilo del Juego */
+    #imgEjercicio {
+        height: 220px;
+        vertical-align: center;
+    }
+
+    .card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #card-imagen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #instruccion {
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .card-title {
+        color: black;
+    }
+
+    .droppable {
+        min-height: 100px;
+        border: 2px dashed #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .btn {
+        margin: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .card-action text {
+        font-size: 20px;
+    }
+
+    .droppable-text {
+        margin-top: auto;
+        margin-bottom: auto;
+        color: #b1c2a3;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    h1 {
+        color: var(--quinary-color);
+    }
+
+    #card-ejercicio {
+        background-color: #E4E8EB;
+    }
+
+    .btn-floating {
+        background-color: #b1c2a3;
+    }
+
+    #modal.modal {
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+</style>
+
+<body>
+
+    <!-- Ejercicio de Palabras -->
+    <div class="col s12 m12 l6">
+        <!-- Imagenes -->
+        <div class="row">
+            <div class="col s12 m12 l4 custom-border">
+                <div id="card-ejercicio" class="card">
+                    <div id="card-imagen" class="card-content white-text">
+                        <img id="imgEjercicio" src="../../Assets/media/Clases/MuffinPC.gif" />
+                    </div>
+                    <div class="card-action droppable" id="primera-droppable"></div>
+                </div>
+            </div>
+            <div class="col s12 m12 l4 custom-border">
+                <div id="card-ejercicio" class="card">
+                    <div id="card-imagen" class="card-content white-text">
+                        <img id="imgEjercicio" src="../../Assets/media/Clases/MuffinRead.gif" />
+                    </div>
+                    <div class="card-action droppable" id="segunda-droppable"></div>
+                </div>
+            </div>
+            <div class="col s12 m12 l4 custom-border">
+                <div id="card-ejercicio" class="card">
+                    <div id="card-imagen" class="card-content white-text">
+                        <img id="imgEjercicio" src="../../Assets/media/Clases/MuffinMusic.gif" />
+                    </div>
+                    <div class="card-action droppable" id="tercera-droppable"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Palabras Unir -->
+        <div class="row center">
+            <div class="col s4">
+                <a class="waves-effect waves-light btn lime accent-4 draggable-button" data-target="cerebro-droppable">
+                    Corriendo en el Pasto
+                </a>
+            </div>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn light-blue darken-4 draggable-button"
+                    data-target="primera-droppable">
+                    Saltando la Cuerda
+                </a>
+            </div>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn yellow lighten-1 draggable-button"
+                    data-target="tercera-droppable">
+                    Comiendo Frutas
+                </a>
+            </div>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn amber darken-1 draggable-button" data-target="segunda-droppable">
+                    Durmiendo en su Cama
+                </a>
+            </div>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn red draggable-button" data-target="gato-droppable">
+                    Leyendo un Libro
+                </a>
+            </div>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn orange darken-2 draggable-button" data-target="casa-droppable">
+                    Tocando Musica
+                </a>
+            </div>
+            <div class="col s6">
+                <a class="waves-effect waves-light btn purple lighten-2 draggable-button" data-target="arbol-droppable">
+                    Andando en Bicicleta
+                </a>
+            </div>
+            <div class="col s6">
+                <a class="waves-effect waves-light btn pink lighten-2 draggable-button" data-target="libro-droppable">
+                    Usando una Computadora
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Importaciones Js -->
+    <script src="../../Assets/materialize/js/materialize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
+    <script src="https://kit.fontawesome.com/770f2e87c7.js" crossorigin="anonymous"></script>
+
+    <!-- Script del Ejercicio -->
+    <script>
+
+        $(document).ready(function () {
+
+            $(".draggable-button").draggable({ //Selecciona todos los elementos con la clase draggable-button
+                revert: true, //Regresa el elemento a su lugar original
+                zIndex: 999, //Establece el indice z del elemento
+            });
+
+            //Selecciona todos los elementos con la clase droppable
+            $(".droppable").droppable({
+                accept: ".draggable-button",
+                drop: function (event, ui) {
+                    var targetId = $(this).attr("id");
+                    var buttonText = ui.draggable.text();
+                    $(this).html(
+                        //Agrega el texto del boton al elemento droppable
+                        '<span class="droppable-text">' + buttonText + "</span>"
+                    );
+                    $(this).append(
+                        //Agrega un input con el nombre del elemento droppable
+                        '<input id="palabra" type="hidden" name="' + targetId + '" value="' + buttonText + '">'
+                    );
+                    //Elimina el elemento que se arrastro
+                    var primeraText = $("#primera-droppable").text().trim();
+                    var segundaText = $("#segunda-droppable").text().trim();
+                    var terceraText = $("#tercera-droppable").text().trim();
+                    if (
+                        //Valida que los elementos sean los correctos
+                        primeraText === "Usando una Computadora" &&
+                        segundaText === "Leyendo un Libro" &&
+                        terceraText === "Tocando Musica"
+                    ) {
+                        //SweetAlert2 para mostrar el mensaje de confirmacion
+                        Swal.fire({
+                            icon: "success",
+                            title: "Muy bien, ahora pasemos al siguiente ejercicio!!",
+                        }).then(() => {
+                            window.location.href = "clase_UnirPalabras2.html";
+                        });
+                    } else if (
+                        //Valida que los elementos no esten vacios
+                        primeraText !== "" &&
+                        segundaText !== "" &&
+                        terceraText !== ""
+                    ) {
+                        //SweetAlert2 para mostrar el mensaje de error
+                        Swal.fire({
+                            title: "Ups! No has introducido los elementos correctos",
+                            text: "Quieres reiniciar la actividad?",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Si, quiero volver a intentarlo",
+                        }).then((result) => {
+                            //SweetAlert2 para mostrar el mensaje de confirmacion
+                            if (result.isConfirmed) {
+                                Swal.fire({
+                                    title: "Perfecto!",
+                                    text: "Suerte en tu proximo intento",
+                                    icon: "success",
+                                }).then(() => {
+                                    //Reinicia la actividad
+                                    $(".droppable").empty();
+                                    $(".droppable input").val("");
+                                });
+                            }
+                        });
+                    }
+                },
+            });
+        });
+    </script>
+    <!-- Script de los controles de Navegacion -->
+    <script>
+        function toggleMute() {
+            var muteButton = document.getElementById("muteButton");
+            var volumeIcon = document.getElementById("volumeIcon");
+
+            if (muteButton.classList.contains("muted")) {
+                muteButton.classList.remove("muted");
+                volumeIcon.classList.remove("fa-volume-off");
+                volumeIcon.classList.add("fa-volume-up");
+                unmutePage();
+            } else {
+                muteButton.classList.add("muted");
+                volumeIcon.classList.remove("fa-volume-up");
+                volumeIcon.classList.add("fa-volume-off");
+                mutePage();
+            }
+        }
+
+        function mutePage() {
+            // Lógica para silenciar la página aquí
+            // Por ejemplo, puedes usar el siguiente código para silenciar todos los elementos de audio y video en la página:
+            var mediaElements = document.querySelectorAll("audio, video");
+            for (var i = 0; i < mediaElements.length; i++) {
+                mediaElements[i].muted = true;
+            }
+        }
+
+        function unmutePage() {
+            // Lógica para activar el sonido en la página aquí
+            // Por ejemplo, puedes usar el siguiente código para activar el sonido en todos los elementos de audio y video en la página:
+            var mediaElements = document.querySelectorAll("audio, video");
+            for (var i = 0; i < mediaElements.length; i++) {
+                mediaElements[i].muted = false;
+            }
+        }
+    </script>
+    <!-- Script del Modal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modalButton = document.getElementById("modalButton");
+            var modal = document.getElementById("modal");
+            var modalInstance = M.Modal.init(modal);
+
+            modalButton.addEventListener('click', function () {
+                modalInstance.open();
+            });
+        });
+    </script>
+    <script>
+        // Obtener la URL actual de la página dentro del iframe
+        var iframeUrl = window.location.href;
+
+        // Enviar la URL al elemento padre
+        window.parent.postMessage(iframeUrl, '*');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="../../Assets/media/Logo/kiwi-favicon.png" />
+    <title>KIWI | Capitulo II: Sumar</title>
+    <link rel="stylesheet" href="../../Assets/css/Styles.css">
+    <link rel="stylesheet" href="../../Assets/materialize/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /*variables*/
+    :root {
+        --primary-color: #f7faf9;
+        /* Background */
+        --secondary-color: #b1c2a3;
+        /*Letras*/
+        --tertiary-color: #DCEDC8;
+        --quaternary-color: #FFF4D0;
+        --quinary-color: #b1c2a3;
+        --white-color: #fff;
+        --black-color: #1D1D1B;
+        --font-light-color: #a8a8b3;
+        --font-dark-color: #737380;
+        --font-bold-color: #4f4f4f;
+        --box_shadow-primary: 0px 6px 50px -20px rgba(0, 0, 0, 0.6);
+        --lowText_font_size: 16px;
+        --text_size_title: 30px;
+        --text_size_title_card: 24px;
+        --text_size_subTitle: 20px;
+    }
+
+    body {
+        background-color: var(--primary-color);
+    }
+
+    .btn-large {
+        width: 100%;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .card-panel {
+        border-radius: 10px;
+    }
+
+    .texto_titulo {
+        color: white;
+        font-size: var(--text_size_title);
+
+    }
+
+    .semi-titulo {
+        color: var(--font-light-color);
+        font-size: var(--text_size_subTitle);
+    }
+
+    /* Estilo del Juego */
+    .circulo {
+        width: 100px;
+        height: 100px;
+        background-color: #c62828;
+        /* Color del círculo */
+        border-radius: 50%;
+        /* Forma redonda del círculo */
+        position: absolute;
+        /* Posicionamiento absoluto dentro del contenedor */
+        top: 50%;
+        /* Posicionamiento verticalmente en el centro */
+        left: 50%;
+        /* Posicionamiento horizontalmente en el centro */
+        transform: translate(-50%,
+                -50%);
+        /* Ajuste para centrar correctamente */
+        cursor: pointer;
+        /* Cambia el cursor al pasar sobre el círculo */
+        transition: all 0.3s ease;
+        /* Transición suave para las animaciones */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #444141;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .circulo-blue {
+        background-color: #00e5ff;
+        /* Color del círculo azul */
+    }
+
+    .circulo-green {
+        background-color: #00e676;
+        /* Color del círculo verde */
+    }
+
+    .circulo-yellow {
+        background-color: #ffff00;
+        /* Color del círculo amarillo */
+    }
+
+    #container-circulos {
+        width: 800px;
+        height: 500px;
+        border-radius: 10px;
+        /* Bordes redondeados para el contenedor */
+        position: relative;
+        /* Necesario para posicionar los círculos correctamente */
+        padding: 80px;
+        /* Agrega un padding al contenedor */
+    }
+
+    #imgEjercicio {
+        height: 202px;
+    }
+
+    .counter {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #card-imagen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #card-ejercicio {
+        background-color: #E4E8EB;
+    }
+
+    #instruccion {
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .btn-floating {
+        background-color: #b1c2a3;
+    }
+
+    #modal.modal {
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+</style>
+
+<body>
+
+    <!-- Ejercicio de la Sumatoria -->
+    <div class="col s12 m12 l6">
+        <!-- Circulos -->
+        <div class="row">
+            <!-- Circulos -->
+            <div class="col s12 m12 l8 custom-border">
+                <div id="card-ejercicio" class="card">
+                    <div id="container-circulos" class="card-content white-text">
+                        <div class="circulo">0</div>
+                        <div class="circulo circulo-blue">0</div>
+                        <div class="circulo circulo-green">0</div>
+                        <div class="circulo circulo-yellow">0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Marcador -->
+            <div id="card-marcador" class="col s4 custom-border">
+                <div id="card-ejercicio" class="card">
+                    <div id="card-imagen" class="card-content white-text">
+                        <img id="imgEjercicio" src="../../Assets/media/Clases/MuffinPlaying.gif" />
+                    </div>
+                    <div class="card-action droppable" id="primera-droppable">
+                        <p class="counter">Suma: <span id="sum">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Importaciones Js -->
+    <script src="../../Assets/materialize/js/materialize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
+    <script src="https://kit.fontawesome.com/770f2e87c7.js" crossorigin="anonymous"></script>
+
+    <!-- Javascript para los circulos -->
+    <script>
+        // Agregar un evento de clic a todos los círculos
+        var circulo = document.querySelectorAll(".circulo");
+        var container = document.querySelector("#container-circulos");
+        var containerRect = container.getBoundingClientRect();
+        var maxX = containerRect.width - 50 - 40; // Ancho del contenedor menos el ancho del círculo y el margen
+        var maxY = containerRect.height - 50 - 40; // Alto del contenedor menos el alto del círculo y el margen
+
+        // Recorrer todos los círculos
+        circulo.forEach(function (circulo) {
+            var number = parseInt(circulo.textContent);
+
+            // Agregar un evento de clic a cada círculo
+            circulo.addEventListener("click", function () {
+                number++;
+                circulo.textContent = number.toString();
+
+                // Obtener un nuevo valor aleatorio para la posición del círculo
+                var randomX = Math.random() * maxX;
+                var randomY = Math.random() * maxY;
+
+                // Verificar si los nuevos valores se salen del contenedor
+                var newX = Math.min(Math.max(randomX, 40), maxX);
+                var newY = Math.min(Math.max(randomY, 40), maxY);
+
+                // Verificar si los nuevos valores se salen del contenedor
+                var circleRect = circulo.getBoundingClientRect();
+
+                // Verificar si los nuevos valores se salen del contenedor
+                if (newX + circleRect.width > containerRect.width - 40) {
+                    newX = containerRect.width - circleRect.width - 40;
+                }
+
+                // Verificar si los nuevos valores se salen del contenedor
+                if (newY + circleRect.height > containerRect.height - 40) {
+                    newY = containerRect.height - circleRect.height - 40;
+                }
+
+                // Establecer la nueva posición del círculo
+                circulo.style.top = newY + "px";
+                circulo.style.left = newX + "px";
+
+                //Suma de los circulos
+                var suma =
+                    parseInt(document.querySelector(".circulo").textContent) +
+                    parseInt(document.querySelector(".circulo-blue").textContent) +
+                    parseInt(document.querySelector(".circulo-green").textContent) +
+                    parseInt(document.querySelector(".circulo-yellow").textContent);
+                document.querySelector("#sum").textContent = suma.toString();
+                if (suma >= 5) {
+                    //alert("Muy bien, ahora pasemos al siguiente ejercicio!!");
+                    Swal.fire({
+                        icon: "success",
+                        title: "Muy bien, ahora pasemos al siguiente ejercicio!!"
+                    }).then(() => {
+                        window.location.href = "clase_SumarCirculos2.html";
+                    });
+                } else {
+                    //alert("Hasta ahora llevas "+suma+" de 5");
+                    Swal.fire(
+                        'Excelente!!',
+                        'Hasta ahora llevas ' + suma + ' de 5'
+                    )
+                }
+            });
+        });
+    </script>
+    <!-- Script de los controles de Navegacion -->
+    <script>
+        function toggleMute() {
+            var muteButton = document.getElementById("muteButton");
+            var volumeIcon = document.getElementById("volumeIcon");
+
+            if (muteButton.classList.contains("muted")) {
+                muteButton.classList.remove("muted");
+                volumeIcon.classList.remove("fa-volume-off");
+                volumeIcon.classList.add("fa-volume-up");
+                unmutePage();
+            } else {
+                muteButton.classList.add("muted");
+                volumeIcon.classList.remove("fa-volume-up");
+                volumeIcon.classList.add("fa-volume-off");
+                mutePage();
+            }
+        }
+
+        function mutePage() {
+            // Lógica para silenciar la página aquí
+            // Por ejemplo, puedes usar el siguiente código para silenciar todos los elementos de audio y video en la página:
+            var mediaElements = document.querySelectorAll("audio, video");
+            for (var i = 0; i < mediaElements.length; i++) {
+                mediaElements[i].muted = true;
+            }
+        }
+
+        function unmutePage() {
+            // Lógica para activar el sonido en la página aquí
+            // Por ejemplo, puedes usar el siguiente código para activar el sonido en todos los elementos de audio y video en la página:
+            var mediaElements = document.querySelectorAll("audio, video");
+            for (var i = 0; i < mediaElements.length; i++) {
+                mediaElements[i].muted = false;
+            }
+        }
+    </script>
+    <!-- Script del Modal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modalButton = document.getElementById("modalButton");
+            var modal = document.getElementById("modal");
+            var modalInstance = M.Modal.init(modal);
+
+            modalButton.addEventListener('click', function () {
+                modalInstance.open();
+            });
+        });
+    </script>
+    <script>
+        // Obtener la URL actual de la página dentro del iframe
+        var iframeUrl = window.location.href;
+
+        // Enviar la URL al elemento padre
+        window.parent.postMessage(iframeUrl, '*');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiwi | Gestion</title>
+    <link rel="icon" type="image/jpg" href="Assets/media/Logo/kiwi-favicon.png" />
+    <link rel="stylesheet" href="Assets/css/style_gestion.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <div class="header">
+        <!--SideBar con division de perfil-->
+        <nav>
+            <!--Perfil-->
+            <div class="frame_profile">
+                <img src="Assets/media/images/photo9.png" alt="profile_photo" class="profile">
+            </div>
+            <!--Herramientas-->
+            <ul>
+                <li><span class="material-symbols-outlined option_sideBar" id="active">home</span></li>
+                <li><span class="material-symbols-outlined option_sideBar">history</span></li>
+                <li><span class="material-symbols-outlined option_sideBar">settings</span></li>
+                <li><a href="Index.html"><span class="material-symbols-outlined option_sideBar"
+                            id="out">logout</span></a></li>
+            </ul>
+        </nav>
+
+        <!--Contenedor-->
+        <div class="container">
+            <!--Seccion superior-->
+            <div class="top_side">
+                <!--Titulo-->
+                <div class="tittle">
+                    <h1 class="title">KIWI <span class="material-symbols-outlined dot">fiber_manual_record</span><span
+                            class="sub_title"> Gestion Profesor</span></h1>
+                </div>
+                <!--Boton acceso clase-->
+                <div class="button">
+                    <h3>Comenzar Clase</h3>
+                </div>
+            </div>
+            <!--Seccion Intermedia-->
+            <div class="row">
+                <!--Seccion lista clases-->
+                <div class="col-1">
+                    <div class="list-container">
+                        <button class="list-item" id="btn_a" onclick="loadIframe('Vistas/info_eje1.html')">
+                            <h2 class="list-title">Primero <span class="list-subTitle">A</span></h2>
+                            <p class="list-exercices">Cap.1: Unir Palabras</p>
+                        </button>
+                        <hr>
+                        <button class="list-item" id="btn_b" onclick="loadIframe('Vistas/info_eje2.html')">
+                            <h2 class="list-title">Segundo <span class="list-subTitle">B</span></h2>
+                            <p class="list-exercices">Cap.1: Sumar Usando Circulos</p>
+                        </button>
+                    </div>
+                </div>
+                <!--Seccion Iframe-->
+                <div class="col-2">
+                    <iframe id="iframe-container" src="Vistas/sample_iframe.html" frameborder="0"
+                        class="explain"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Assets/js/script_gestion.js"></script>
+
+    <!-- Script para el Iframe -->
+    <script>
+        // Funcion para cargar el iframe en base al btn seleccionado
+        function loadIframe(src) {
+            document.getElementById("iframe-container").src = src;
+        }
+
+        // Funcion para habilitar el boton de comenzar clase
+        function enableButton(btn) {
+            var buttonContainer = document.querySelector('.button');
+            var newButton = document.createElement('div');
+            newButton.classList.add('button_active');
+            var link = document.createElement('a');
+            var linkText = document.createTextNode('Comenzar Clase');
+            link.appendChild(linkText);
+
+            if (btn === 'a') {
+                console.log('Boton 1 Pulsado');
+                link.href = 'Vistas/Clase.html?flag=a';
+            } else if (btn === 'b') {
+                console.log('Boton 2 Pulsado');
+                link.href = 'Vistas/Clase.html?flag=b';
+            }
+
+            newButton.appendChild(link);
+            buttonContainer.replaceWith(newButton);
+        }
+
+
+        // Obtén una referencia al botón por su id
+        var button1 = document.getElementById('btn_a');
+        var button2 = document.getElementById('btn_b');
+
+        // Agrega un escuchador de eventos clic al botón
+        button1.addEventListener('click', function () {
+            // La función se ejecutará cuando se haga clic en el botón
+            enableButton('a');
+        });
+
+        button2.addEventListener('click', function () {
+            // La función se ejecutará cuando se haga clic en el botón
+            enableButton('b');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiwi | Curso</title>
+    <link rel="icon" type="image/jpg" href="../Assets/media/Logo/kiwi-favicon.png" />
+    <link rel="stylesheet" href="../Assets/css/style_clase.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+</head>
+
+<body>
+    <style>
+        .highlighted {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+    <div class="header">
+        <select id='voiceSelect' style=" Display: none"></select>
+        <!--SideBar con division de perfil-->
+        <nav>
+            <!--Perfil-->
+            <div class="frame_profile">
+                <img src="../Assets/media/images/photo9.png" alt="profile_photo" class="profile">
+            </div>
+            <!--Invitados-->
+            <ul>
+                <li><img src="../Assets/media/images/photo1.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo2.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo3.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo4.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo5.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo6.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo7.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo8.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo10.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo11.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo12.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo13.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo1.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo2.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo3.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo4.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo5.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo6.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo7.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo8.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo10.png" alt="partner"></li>
+                <li><img src="../Assets/media/images/photo11.png" alt="partner"></li>
+            </ul>
+        </nav>
+        <!--Contenedor-->
+        <div class="container">
+            <!--Seccion superior-->
+            <div class="top_side">
+                <!--Titulo-->
+                <div class="tittle">
+                    <h1 class="title">Capitulo 1 <span class="sub_title" id="titulo">1.1 Hardware</span></h1>
+                </div>
+                <!--Barra de Herramientas-->
+                <div class="toolBar">
+                    <div class="toolBar_item" id="info">
+                        <i class="material-icons tools" id="iInfo">question_mark</i>
+                    </div>
+                    <div class="toolBar_item">
+                        <i class="material-icons tools">volume_up</i>
+                    </div>
+                    <div class="toolBar_item">
+                        <i class="material-icons tools">replay</i>
+                    </div>
+                    <hr class="toolBar_espaciado" width="3" size="40%">
+                    <div class="toolBar_item" id="out">
+                        <a href="../gestion.html"><i class="material-icons tools" id="iOut">logout</i></a>
+                    </div>
+                </div>
+            </div>
+            <!--Seccion Intermedia-->
+            <div class="row">
+                <div class="col-1">
+                    <iframe src="../Vistas/Ejercicios/clase_UnirPalabras.html" frameborder="0" class="clase"
+                        id="miIframe"></iframe>
+                    <!--Iframe donde se reproducira el ejercicio-->
+                    <script>
+                        // Obtener la cadena de consulta de la URL actual
+                        var queryString = window.location.search;
+
+                        // Crear un objeto URLSearchParams a partir de la cadena de consulta
+                        var params = new URLSearchParams(queryString);
+
+                        // Obtener el valor de un parámetro específico
+                        var flag = params.get('flag');
+
+                        console.log(flag); // valor1
+
+                        // Obtener una referencia al elemento iframe
+                        var miIframe = document.getElementById('miIframe');
+
+                        if (flag === "a") {
+                            miIframe.src = "../Vistas/Ejercicios/clase_UnirPalabras.html";
+                        } else if (flag === "b") {
+                            miIframe.src = "../Vistas/Ejercicios/clase_SumarCirculos.html";
+                        } else {
+                            miIframe.src = "../Vistas/Ejercicios/clase_UnirPalabras.html";
+                        }
+                    </script>
+                    <!--Seccion inferior-->
+                    <div class="downside">
+                        <!--Texto explicativo-->
+                        <div class="lesson_text">
+                            <h2 class="lesson_title" id="nivel">Nivel 1</h2>
+                            <p class="lesson_description" id="descripcion">Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit.
+                                Cupiditate consectetur quibusdam unde ea porro quos sint voluptate quisquam dolores
+                                veritatis assumenda omnis libero, blanditiis ullam cum consequuntur placeat voluptates
+                                dolore? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos doloremque
+                                sunt ipsum quae repudiandae minus eos temporibus, nemo odit! Asperiores pariatur
+                                suscipit cupiditate? Totam iusto labore minus animi quisquam excepturi.</p>
+                        </div>
+                        <!--Video de señas-->
+                        <div class="sign_video">
+                            <video autoplay controls src="../Video/videoBilingue.mp4" width="100%" height="100%"
+                                style="border-radius: 10px;"></video>
+                        </div>
+                    </div>
+                </div>
+                <!--Seccion de explicacion del capitulo-->
+                <div class="col-2">
+                    <h2 class="title_explain"><i class="material-icons">history_edu</i>Aprendiendo y Jugando
+                        con los Fundamentos</h2>
+                    <hr class="division_explain">
+                    <p class="lesson_description">
+                        En este emocionante capítulo, nuestros personajes se sumergen en una variedad de actividades
+                        educativas y divertidas. Comienzan resolviendo ejercicios de suma para mejorar sus habilidades
+                        matemáticas. Luego, se desafían a unir palabras, fortaleciendo su vocabulario y expresión oral.
+                        Después, exploran la pronunciación y la articulación al decir en voz alta frases y nombres de
+                        objetos.
+                    </p>
+                    <h3 class="subTitle_explain"><i class="material-icons">psychology</i>Habilidades Desarrolladas</h3>
+                    <hr class="division_explain">
+                    <ul class="image-list">
+                        <li>
+                            <img src="../Assets/media/skills/concentracion_blue.png" alt="Imagen 1">
+                            <div class="image-text">
+                                <p>Observacion</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../Assets/media/skills/destreza_blue.png" alt="Imagen 2">
+                            <div class="image-text">
+                                <p>Asociacion y Razonamiento</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../Assets/media/skills/motricidad_blue.png" alt="Imagen 3">
+                            <div class="image-text">
+                                <p>Motricidad Fina</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../Assets/media/skills/velocidad_blue.png" alt="Imagen 4">
+                            <div class="image-text">
+                                <p>Vocabulario y Comprension</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        // Esperar a que el iframe se cargue completamente
+        var iframe = document.getElementById('miIframe');
+        iframe.addEventListener('load', function () {
+            // Obtener la URL del iframe
+
+            // Enviar la URL del iframe a la página principal
+            window.parent.postMessage(iframeUrl, '*');
+
+        });
+
+        // Controlador del evento 'message'
+        window.addEventListener('message', function (event) {
+            // Verificar el origen del mensaje recibido
+            // Obtener la URL del iframe desde el mensaje
+            var iframeUrl = event.data;
+
+            // Modificar datos en la página principal según la URL del iframe
+            if (iframeUrl.endsWith('clase_UnirPalabras.html')) {
+                var elementoExterno1 = document.getElementById('titulo');
+                var elementoExterno2 = document.getElementById('descripcion');
+                var elementoExterno3 = document.getElementById('nivel');
+                elementoExterno1.innerHTML = '1.1 Unir Palabras';
+                elementoExterno2.innerHTML = 'En este ejercicio, el niño deberá unir las palabras con su respectiva imagen. Para ello, deberá arrastrar la palabra y soltarla en la imagen correspondiente. Al finalizar, el niño podrá escuchar la palabra y ver la imagen que seleccionó.';
+                elementoExterno3.innerHTML = 'Nivel 1';
+            }
+            else if (iframeUrl.endsWith('clase_UnirPalabras2.html')) {
+                var elementoExterno1 = document.getElementById('titulo');
+                var elementoExterno2 = document.getElementById('descripcion');
+                var elementoExterno3 = document.getElementById('nivel');
+                elementoExterno1.innerHTML = '1.1 Unir Palabras';
+                elementoExterno2.innerHTML = 'En este ejercicio, el niño deberá unir las palabras con su respectiva imagen. Para ello, deberá arrastrar la palabra y soltarla en la imagen correspondiente. Al finalizar, el niño podrá escuchar la palabra y ver la imagen que seleccionó.';
+                elementoExterno3.innerHTML = 'Nivel 2';
+            } else if (iframeUrl.endsWith('clase_SumarCirculos.html')) {
+                var elementoExterno1 = document.getElementById('titulo');
+                var elementoExterno2 = document.getElementById('descripcion');
+                var elementoExterno3 = document.getElementById('nivel');
+                elementoExterno1.innerHTML = '1.2 Sumar Usando Circulos';
+                elementoExterno2.innerHTML = 'En este ejercicio, el niño deberá sumar los circulos que se le presentan. Para ello, deberá arrastrar los circulos y soltarlos en el espacio correspondiente. Al finalizar, el niño podrá escuchar la palabra y ver la imagen que seleccionó.';
+                elementoExterno3.innerHTML = 'Nivel 1';
+            } else if (iframeUrl.endsWith('clase_SumarCirculos2.html')) {
+                var elementoExterno1 = document.getElementById('titulo');
+                var elementoExterno2 = document.getElementById('descripcion');
+                var elementoExterno3 = document.getElementById('nivel');
+                elementoExterno1.innerHTML = '1.2 Sumar Usando Circulos';
+                elementoExterno2.innerHTML = 'En este ejercicio, el niño deberá sumar los circulos que se le presentan. Para ello, deberá arrastrar los circulos y soltarlos en el espacio correspondiente. Al finalizar, el niño podrá escuchar la palabra y ver la imagen que seleccionó.';
+                elementoExterno3.innerHTML = 'Nivel 2';
+
+            } else {
+                var elementoExterno = document.getElementById('descripcion');
+                elementoExterno.innerHTML = 'sin ruta';
+            }
+
+            // Mostrar la URL del iframe en la consola
+            console.log('URL del iframe:', iframeUrl);
+        }
+        );
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            (function() {
+              "use strict";
+          
+              if (typeof speechSynthesis === 'undefined')
+                return;
+          
+              var voiceSelect = document.getElementById("voiceSelect");
+              var voices = [];
+              var textElements = document.querySelectorAll("p, h1, h2");
+          
+              function populateVoiceList() {
+                voices = speechSynthesis.getVoices();
+          
+                for (var i = 0; i < voices.length; i++) {
+                  var option = document.createElement('option');
+                  option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+                  option.textContent += voices[i].default ? ' -- DEFAULT' : '';
+                  option.setAttribute('data-lang', voices[i].lang);
+                  option.setAttribute('data-name', voices[i].name);
+                  document.getElementById("voiceSelect").appendChild(option);
+                }
+              }
+          
+              function speakText(text) {
+                var utterThis = new SpeechSynthesisUtterance(text);
+                var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+          
+                for (var i = 0; i < voices.length; i++) {
+                  if (voices[i].name === selectedOption) {
+                    utterThis.voice = voices[i];
+                  }
+                }
+          
+                speechSynthesis.speak(utterThis);
+              }
+              
+          
+              function getSelectionText() {
+                var text = "";
+                if (window.getSelection) {
+                  text = window.getSelection().toString();
+                } else if (document.selection && document.selection.type !== "Control") {
+                  text = document.selection.createRange().text;
+                }
+                return text;
+              }
+          
+              document.onmouseup = function(e) {
+                var selectedText = getSelectionText();
+                if (selectedText.length > 0) {
+                  speakText(selectedText);
+                }
+              };
+          
+              function start() {
+                populateVoiceList();
+                if (speechSynthesis.onvoiceschanged !== undefined)
+                  speechSynthesis.onvoiceschanged = populateVoiceList;
+          
+                voiceSelect.onchange = function() {
+                  var selectedText = getSelectionText();
+                  if (selectedText.length > 0) {
+                    //speakText(selectedText);
+                  }
+                };
+          
+                setTimeout(function() {
+                  var defaultOption = voiceSelect.querySelector('[data-default="true"]');
+                  if (defaultOption) {
+                    defaultOption.selected = true;
+                  }
+                }, 75);
+              }
+          
+              start();
+            })();
+          });
+          
+    </script>
+    <script src="Assets/js/script.js"></script>
+</body>
+
+</html>
